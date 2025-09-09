@@ -13,3 +13,4 @@ __pycache__/
 
 # Optional: trained Q-table
 # *.pkl
+venv/
