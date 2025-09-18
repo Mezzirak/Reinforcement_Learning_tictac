@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from RL_tictac_game.environment import TicTacToe
 from RL_tictac_game.agent import QLearningAgent
 import random
+import os
 
 def get_smarter_opponent_action(env, agent_player, opponent_player):
     """
@@ -108,12 +109,19 @@ def train(episodes=200000, q_table_filename="q_table.pkl"):
     print("Training finished")
     agent.save_q_table(q_table_filename)
 
+    # Create the images directory if it doesn't exist
+    if not os.path.exists('images'):
+        os.makedirs('images')
+
+    # Generate and save the plot
     moving_avg_rewards = [np.mean(rewards[i-100:i]) for i in range(100, len(rewards))]
+    plt.figure(figsize=(10, 6))
     plt.plot(moving_avg_rewards)
     plt.xlabel("Episode")
     plt.ylabel("Moving Average Reward (100 episodes)")
     plt.title("Training Progress")
-    plt.show()
+    plt.savefig('images/training_progress.png')
+    plt.close()
 
 
 if __name__ == "__main__":
