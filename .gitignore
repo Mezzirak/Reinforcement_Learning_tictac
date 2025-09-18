@@ -5,6 +5,7 @@ venv/
 __pycache__/
 *.pyc
 
+<<<<<<< HEAD
 # Mac system files
 .DS_Store
 
@@ -13,4 +14,18 @@ __pycache__/
 
 # Optional: trained Q-table
 # *.pkl
+
+# Virtual environment
 venv/
+
+# Model/data files
+*.pkl
+*.h5
+*.ckpt
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
