@@ -35,7 +35,7 @@ class TicTacToe:
             self.done = True
             self.winner = player
         elif len(self.get_valid_actions()) == 0:
-            reward = -0.1  # Penalty for a draw
+            reward = 0.5  # Positive reward for a draw
             self.done = True
 
         return self._get_state(), reward, self.done
